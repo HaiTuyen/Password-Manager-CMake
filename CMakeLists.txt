@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 set(VCPKG_ROOT "C:/vcpkg")
-set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}scripts/buildsystems/vcpkg.cmake")
+set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
 project(PasswordManager)
 
