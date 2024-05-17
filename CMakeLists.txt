@@ -20,7 +20,7 @@ find_package(bson-1.0 REQUIRED)
 find_package(mongoc-1.0 REQUIRED)
 
 # Add the cryptopp-cmake subdirectory
-add_subdirectory(cryptopp-cmake)
+add_subdirectory(cryptopp-cmake-CRYPTOPP_8_9_0)
 
 include_directories("${VCPKG_ROOT}/installed/x64-windows/include/mongocxx/v_noabi")
 include_directories("${VCPKG_ROOT}/installed/x64-windows/include/bsoncxx/v_noabi")
