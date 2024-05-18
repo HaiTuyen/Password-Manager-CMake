@@ -17,7 +17,7 @@ To successfully building the project, ensure you have the following software ins
 * **Mongocxx Driver**: The C++ driver for interacting with MongoDB, installed via vcpkg.
 * **C++ Compiler (with C++17 Support)**: A C++ compiler capable of compiling code compliant with the C++17 standard. Visual Studio is a recommended option, as it provides comprehensive C++ development tools and supports the C++17 standard out of the box.
 
-## Installing
+## Installation
 
 #### CMake
 
