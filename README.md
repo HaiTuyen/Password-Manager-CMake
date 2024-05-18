@@ -2,6 +2,12 @@
 
 ---
 
+This is a simple command line tool for securely storing passwords. They are encrypted using the hash value of your master password and stored on mongoDB database. I created this tool for personal use, ultilize a free M0 cluster on MongoDB Atlas. To use it, you'll need to create your own project and cluster on Atlas.
+
+Remember your master password! If you forget it, you will lose everything. However, your master password will be stored in your system's environment variables. Don't change it unless you reset the master password.
+
+Enjoy!
+
 ## Prerequisites
 
 To successfully building the project, ensure you have the following software installed and configured on your system:
