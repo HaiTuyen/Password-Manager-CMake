@@ -29,7 +29,7 @@ If CMake is not already installed on your system, follow these step:
 
 #### vcpkg
 
-To install and st up vcpkg, follow these steps: 
+To install and set up vcpkg, follow these steps:
 
 1. Open a terminal or command prompt and navigate to your `C:/` directory. Clone the vcpkg repository from Github using the following command:
 
@@ -43,11 +43,11 @@ To install and st up vcpkg, follow these steps:
    .\vcpkg\bootstrap-vcpkg.bat
    ```
 
-**Recommendation**: I advised you to install vcpkg in the `C:/`directory to align with the default configuration in the `CMakeLists.txt` file. If you choose a different installation location, you will need to update the `VCPKG_ROOT` variable in your `CMakeLists.txt` accordingly.
+**Recommendation**: I advised you to install vcpkg in the `C:/` directory to align with the default configuration in the `CMakeLists.txt` file. If you choose a different installation location, you will need to update the `VCPKG_ROOT` variable in your `CMakeLists.txt` accordingly.
 
 #### mongcxx driver
 
-Open Window Powershell and navigate to the vcpkg installation directory (assuming it was installed in `C:/vcpkg`). Ensure you have the lastes version of vcpkg by running `git pull`. Then, install the mongcxx driver.
+Open Window Powershell and navigate to the vcpkg installation directory (assuming it was installed in `C:/vcpkg`). Ensure you have the lastest version of vcpkg by running `git pull`. Then, install the mongcxx driver.
 
 ```bash
 cd C:/vcpkg
@@ -57,9 +57,9 @@ git pull
 
 #### Create enviroment variables
 
-* `MONGOBD-URI` : The connection string of the cluster in mongoDB Atlas of your project. You will need to create the Altas project by yourself. Just use the M0 cluster for free.
-* `PM-MASTER-USER` : The master username
-* `PM-MASTER-PASSWORD` : The master password
+* `MONGOBD-URI` : The connection string of the cluster in mongoDB Atlas of your project.
+* `PM-MASTER-USER` : The master username.
+* `PM-MASTER-PASSWORD` : The master password.
 
 #### Configure and build the project
 
@@ -85,4 +85,4 @@ cmake --build .
 
 ```
 
-Upon successfull build, the `pm.exe` will be generated in the `build/Debug` directory. Add this dicrectory to your system PATH environment varibale. This allows you to execute the command without specifying the full path. Restart the computer if neccessary.
+Upon successfull build, the `pm.exe` will be generated in the `build/Debug` directory. Add this dicrectory to your system's PATH environment variable. This allows you to execute the command without specifying the full path. Restart the computer if neccessary.
