@@ -57,9 +57,9 @@ git pull
 
 #### Create enviroment variables
 
-* `MONGOBD-URI` : The connection string of the cluster in mongoDB Atlas of your project.
-* `PM-MASTER-USER` : The master username.
-* `PM-MASTER-PASSWORD` : The master password.
+* `MONGODB_URI` : The connection string of the cluster in mongoDB Atlas of your project.
+* `PM_MASTER_USER` : The master username.
+* `PM_MASTER_PASSWORD` : The master password.
 
 #### Configure and build the project
 
