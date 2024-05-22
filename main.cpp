@@ -410,14 +410,14 @@ int main(int argc, char* argv[])
 
 std::string take_password_from_user()
 {
-	HANDLE hStdInput = GetStdHandle(STD_INPUT_HANDLE);
-	DWORD mode = 0;
+	// HANDLE hStdInput = GetStdHandle(STD_INPUT_HANDLE);
+	// DWORD mode = 0;
 
-	// Create a restore point Mode, is know 503 
-	GetConsoleMode(hStdInput, &mode);
+	// // Create a restore point Mode, is know 503 
+	// GetConsoleMode(hStdInput, &mode);
 
-	// Enable echo input, set to 499 
-	SetConsoleMode(hStdInput, mode & (~ENABLE_ECHO_INPUT));
+	// // Enable echo input, set to 499 
+	// SetConsoleMode(hStdInput, mode & (~ENABLE_ECHO_INPUT));
 
 	// Take input 
 	string ipt;
@@ -427,7 +427,7 @@ std::string take_password_from_user()
 	cout << endl;
 
 	// Restore the mode 
-	SetConsoleMode(hStdInput, mode);
+	//SetConsoleMode(hStdInput, mode);
 	return ipt;
 }
 
