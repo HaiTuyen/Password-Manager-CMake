@@ -22,20 +22,34 @@ DatabaseHandler::~DatabaseHandler()
 
 std::string DatabaseHandler::get_environment_variable(std::string environmentVarKey)
 {
+	// char* pBuffer = nullptr;
+	// size_t size = 0;
+	// auto key = environmentVarKey.c_str();
+	// // Use the secure version of getenv, ie. _dupenv_s to fetch environment variable.
+	// if (_dupenv_s(&pBuffer, &size, key) == 0 && pBuffer != nullptr)
+	// {
+	// 	std::string environmentVarValue(pBuffer);
+	// 	free(pBuffer);
+	// 	return environmentVarValue;
+	// }
+	// else
+	// {
+	// 	return "";
+	// }
 	char* pBuffer = nullptr;
-	size_t size = 0;
-	auto key = environmentVarKey.c_str();
-	// Use the secure version of getenv, ie. _dupenv_s to fetch environment variable.
-	if (_dupenv_s(&pBuffer, &size, key) == 0 && pBuffer != nullptr)
-	{
-		std::string environmentVarValue(pBuffer);
-		free(pBuffer);
-		return environmentVarValue;
-	}
-	else
-	{
-		return "";
-	}
+    const char* key = environmentVarKey.c_str();
+    
+    // Use std::getenv to fetch environment variable.
+    pBuffer = std::getenv(key);
+    if (pBuffer != nullptr)
+    {
+        std::string environmentVarValue(pBuffer);
+        return environmentVarValue;
+    }
+    else
+    {
+        throw std::runtime_error("Environment variable not found: " + environmentVarKey);
+    }
 }
 
 std::string DatabaseHandler::to_json(bsoncxx::document::view view)

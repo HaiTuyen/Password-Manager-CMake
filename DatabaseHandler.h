@@ -3,6 +3,7 @@
 #define DATABASE_HANDLER_H
 #include <string>
 #include <iostream>
+#include <cstdlib>
 #include <mongocxx/client.hpp>
 #include <bsoncxx/builder/stream/document.hpp>
 #include <bsoncxx/builder/basic/document.hpp>

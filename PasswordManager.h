@@ -6,6 +6,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <cstdlib> 
 #include "AESEncryption.h"
 #include "DatabaseHandler.h"
 #include "Account.h"
