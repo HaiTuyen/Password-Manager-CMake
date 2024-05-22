@@ -15,7 +15,7 @@ To successfully building the project, ensure you have the following software ins
 * **CMake**: A cross-platform build system generator for managing the build process C++ project.
 * **Vcpkg**: A C++ package manager that simplifies the installation of mongocxx driver.
 * **Mongocxx Driver**: The C++ driver for interacting with MongoDB, installed via vcpkg.
-* **C++ Compiler (with C++17 Support)**: A C++ compiler capable of compiling code compliant with the C++17 standard. Visual Studio is a recommended option, as it provides comprehensive C++ development tools and supports the C++17 standard out of the box.
+* **C++ Compiler (with C++17 Support)**: A C++ compiler capable of compiling code compliant with the C++17 standard. Don't worry cause it avaible in linux machine by default.
 
 ## Installation
 
@@ -23,43 +23,57 @@ To successfully building the project, ensure you have the following software ins
 
 If CMake is not already installed on your system, follow these step:
 
-1. Navigate the official CMake download page at [https://cmake.org/download](https://cmake.org/download/)
-2. Choose the appropriate installer for yout operating system. For Windows with 64-bit architecture, download the [`cmake-3.29.3-windows-x86_64.msi`](https://github.com/Kitware/CMake/releases/download/v3.29.3/cmake-3.29.3-windows-x86_64.msi) file.
-3. Run the downloaded installer and follow the default instruction.
+1. Install `snapd`
+
+   ```
+   sudo apt update
+   sudo apt install snapd
+
+   ```
+2. **Install CMake** : Once snapd is installed, you can use it to install CMake. The `cmake` snap package is maintained by the Snapcrafters community. To install the latest version of CMake, run:
+
+   ```
+   sudo snap install cmake --classic
+
+   ```
+
+   The `--classic` flag is required because CMake needs access to certain system resources which are restricted by default for snap packages
 
 #### vcpkg
 
 To install and set up vcpkg, follow these steps:
 
-1. Open a terminal or command prompt and navigate to your `C:/` directory. Clone the vcpkg repository from Github using the following command:
+1. Open terminal and navigate to the `Tools` directory. Clone the vcpkg repository from Github using the following command:
 
    ```bash
-   cd C:/
+   cd ~
+   mkdir Tools
+   cd Tools
    git clone https://github.com/microsoft/vcpkg
    ```
 2. Run the bootstrap scripts to prepare vcpkg for use:
 
    ```
-   .\vcpkg\bootstrap-vcpkg.bat
+   ./vcpkg/bootstrap-vcpkg.sh
    ```
 
-**Recommendation**: I advised you to install vcpkg in the `C:/` directory to align with the default configuration in the `CMakeLists.txt` file. If you choose a different installation location, you will need to update the `VCPKG_ROOT` variable in your `CMakeLists.txt` accordingly.
+**Recommendation**: I advised you to install vcpkg in the `~/Tools` directory to align with the default configuration in the `CMakeLists.txt` file. If you choose a different installation location, you will need to update the `VCPKG_ROOT` variable in your `CMakeLists.txt` accordingly.
 
 #### mongcxx driver
 
-Open Window Powershell and navigate to the vcpkg installation directory (assuming it was installed in `C:/vcpkg`). Ensure you have the lastest version of vcpkg by running `git pull`. Then, install the mongcxx driver.
+Open Window Powershell and navigate to the vcpkg installation directory (assuming it was installed in `~/Tools/vcpkg`). Ensure you have the lastest version of vcpkg by running `git pull`. Then, install the mongcxx driver.
 
 ```bash
-cd C:/vcpkg
+cd ~/Tools/vcpkg
 git pull
 ./vcpkg install mongo-cxx-driver
 ```
 
 #### Create enviroment variables
 
-* `MONGOBD-URI` : The connection string of the cluster in mongoDB Atlas of your project.
-* `PM-MASTER-USER` : The master username.
-* `PM-MASTER-PASSWORD` : The master password.
+* `MONGODB_URI` : The connection string of the cluster in mongoDB Atlas of your project.
+* `PM_MASTER_USER` : The master username.
+* `PM_MASTER_PASSWORD` : The master password.
 
 #### Configure and build the project
 
@@ -81,8 +95,7 @@ Use CMake to generate the build files and then build the project:
 
 ```
 cmake ..
-cmake --build .
-
+make
 ```
 
 Upon successfull build, the `pm.exe` will be generated in the `build/Debug` directory. Add this dicrectory to your system's PATH environment variable. This allows you to execute the command without specifying the full path. Restart the computer if neccessary.
