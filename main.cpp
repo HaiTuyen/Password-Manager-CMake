@@ -2,8 +2,8 @@
 #include <string>
 #include <iomanip>
 #include "PasswordManager.h"
-#include "lib/color-console/include/color.hpp"
-#include "lib/tabulate/single_include/tabulate/tabulate.hpp"
+#include "lib/color.hpp"
+#include "lib/tabulate.hpp"
 
 using std::cin;
 using std::cout;
