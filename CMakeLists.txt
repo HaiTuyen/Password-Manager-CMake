@@ -27,10 +27,8 @@ include_directories("${VCPKG_ROOT}/installed/x64-windows/include/bsoncxx/v_noabi
 include_directories("${VCPKG_ROOT}/installed/x64-windows/include")
 include_directories("${VCPKG_ROOT}/installed/x64-windows/lib")
 
-
 # Add the executable
 add_executable(pm main.cpp Account.cpp AESEncryption.cpp PasswordManager.cpp DatabaseHandler.cpp SHAHashing.cpp)
 
 # Link the necessary libraries
 target_link_libraries(pm cryptopp::cryptopp nlohmann_json::nlohmann_json mongo::mongocxx_shared mongo::mongoc_shared mongo::bson_shared mongo::bsoncxx_shared)
-
