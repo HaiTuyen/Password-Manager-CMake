@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 
 				else if (command == "gen")
 				{
-					cout << dye::green("[SUCCESS] Generated password: ") << dye::red(app.generate_random_password()) << endl;
+					cout << dye::green("[SUCCESS] Generated password: ") << dye::yellow(app.generate_random_password()) << endl;
 				}
 
 				else
