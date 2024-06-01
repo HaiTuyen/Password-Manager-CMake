@@ -474,6 +474,10 @@ void get_account_info_to_remove(PasswordManager &app, string &service, string &u
 
 void remove_spaces(string &str)
 {
+	str.erase(std::find_if(str.rbegin(), str.rend(), [](unsigned char ch) {
+        return !std::isspace(ch);
+    }).base(), str.end());
+
 	std::replace(str.begin(), str.end(), ' ', '-');
 }
 
